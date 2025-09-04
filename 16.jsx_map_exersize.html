@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabel Mahasiswa</title>
+  <!-- React & Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const mahasiswas = [
+      { nama: "Eka", umur: 19, jurusan: "Teknik Informatika" },
+      { nama: "Lisa", umur: 18, jurusan: "Sistem Informasi" },
+      { nama: "Rudi", umur: 19, jurusan: "Teknik Elektro" }
+    ];
+
+    function App() {
+      return (
+        <div>
+          <h2>Daftar Mahasiswa</h2>
+          <table border="1" cellPadding="5" style={{ borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Jurusan</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mahasiswas.map((mhs, index) => (
+                <tr key={index}>
+                  <td>{mhs.nama}</td>
+                  <td>{mhs.umur}</td>
+                  <td>{mhs.jurusan}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
+
+
+
+
